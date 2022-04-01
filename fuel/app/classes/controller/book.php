@@ -7,26 +7,29 @@ class Controller_Book extends Controller_App
 {
     public function action_index()
     {
+        $query = Model_Book::query()
+            ->related('author')
+            ->order_by('id', 'desc');
+
+        $title = Input::get('title');
+        if (!empty($title)) {
+            $query->where('title', 'like', '%' . $title . '%');
+        }
+
         $config = array(
             'pagination_url' => '/book/',
-            'total_items'    => Model_Book::count(),
+            'total_items'    => (clone $query)->count(),
             'per_page'       => 4,
-            // 'uri_segment'    => 3,
-            // or if you prefer pagination by query string
             'uri_segment'    => 'page',
         );
 
         $pagination = \Fuel\Core\Pagination::forge('mypagination', $config);
-        $data['books'] = Model_Book::query()
-            ->related('author')
-            ->rows_offset($pagination->offset)
-            ->rows_limit($pagination->per_page)
-            ->order_by('id', 'desc')
-            ->get();
-
         $data['pagination'] = $pagination;
 
-        //$data['books'] = Model_Book::find('all', ['related' => 'author']);
+        $data['books'] = $query->rows_offset($pagination->offset)
+            ->rows_limit($pagination->per_page)
+            ->get();
+
         $this->template->content = View::forge('book/index', $data);
         $this->template->formSuccess = View::forge('layouts/form-success');
     }

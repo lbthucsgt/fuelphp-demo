@@ -1,4 +1,12 @@
 <div class="book-wrapper">
+    <div>
+        <form>
+            <div class="d-flex mt-3">
+                <input name="title" type="text" class="form-control mr-2" placeholder="search book">
+                <button type="submit" class="btn btn-primary">Search</button>
+            </div>
+        </form>
+    </div>
     <div class="d-flex justify-content-end mt-4">
         <a href="/book/create" class="btn btn-primary">Create Book</a>
     </div>
