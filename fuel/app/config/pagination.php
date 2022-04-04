@@ -96,7 +96,7 @@ return array(
 		 * ---------------------------------------------------------------------
 		 */
 
-		'previous-inactive'      => "<li class=\"page-item previous-inactive\">\n\t{link}\n</li>\n",
+		'previous-inactive'      => "<li class=\"page-item previous-inactive disabled\">\n\t{link}\n</li>\n",
 		'previous-inactive-link' => "\t\t<a href=\"#\" rel=\"prev\" class='page-link'>{page}</a>\n",
 
 		/**
@@ -133,7 +133,7 @@ return array(
 		 * ---------------------------------------------------------------------
 		 */
 
-		'next-inactive'      => "<li class=\"page-item next-inactive\">\n\t{link}\n</li>\n",
+		'next-inactive'      => "<li class=\"page-item next-inactive disabled\">\n\t{link}\n</li>\n",
 		'next-inactive-link' => "\t\t<a href=\"#\" rel=\"next\" class='page-link'>{page}</a>\n",
 
 		/**
