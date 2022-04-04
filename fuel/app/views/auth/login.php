@@ -1,6 +1,7 @@
 <div class="login-wrapper mt-2 w-50">
     <h2>Login</h2>
     <form method="post" enctype="multipart/form-data" data-parsley-validate>
+        <?= \Form::csrf(); ?>
         <div class="form-group row">
             <label class="col-3">email</label>
             <div class="col-9">

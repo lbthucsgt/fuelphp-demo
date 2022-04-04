@@ -34,7 +34,6 @@ class Controller_Book extends Controller_App
             ->get();
 
         $this->template->content = View::forge('book/index', $data);
-        $this->template->formSuccess = View::forge('layouts/form-success');
     }
 
     public function action_create()
@@ -72,13 +71,17 @@ class Controller_Book extends Controller_App
         $data['book'] = Model_Book::find($id);
         $data['authors'] = Model_Author::find('all');
         $this->template->content = View::forge('book/edit', $data);
-        $this->template->formSuccess = View::forge('layouts/form-success');
-        $this->template->formError = View::forge('layouts/form-error');
     }
 
     public function action_delete($id)
     {
         $book = Model_Book::find($id);
+
+        // Delete old image
+        if (!empty($book->cover)) {
+            @unlink(DOCROOT . 'cover/' . $book->cover);
+        }
+
         $book->delete();
         Session::set_flash('success', 'The book has been deleted!');
 
@@ -104,10 +107,11 @@ class Controller_Book extends Controller_App
             if (Upload::is_valid()) {
                 Upload::save();
 
+                // Delete old image
                 if (!empty($book->cover)) {
-                    // Delete old image
                     @unlink(DOCROOT . 'cover/' . $book->cover);
                 }
+
                 $book->cover = $newImageName;
                 $book->save();
             }

@@ -1,6 +1,7 @@
 <div class="register-wrapper mt-2 w-50">
     <h2>Register</h2>
     <form method="post" data-parsley-validate>
+        <?= \Form::csrf(); ?>
         <div class="form-group row">
             <label class="col-3">Username</label>
             <div class="col-9">

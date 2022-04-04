@@ -27,7 +27,6 @@ class Controller_Author extends Controller_App
         $data['pagination'] = $pagination;
 
         $this->template->content = View::forge('author/index', $data);
-        $this->template->formSuccess = View::forge('layouts/form-success');
     }
 
     public function action_create()
@@ -55,7 +54,6 @@ class Controller_Author extends Controller_App
 
         $data['author'] = Model_Author::find($id);
         $this->template->content = View::forge('author/edit', $data);
-        $this->template->formSuccess = View::forge('layouts/form-success');
     }
 
     public function action_delete($id)

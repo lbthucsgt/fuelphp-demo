@@ -1,6 +1,7 @@
 <div class="book-wrapper mt-2">
     <h2>Edit Book</h2>
     <form method="post" enctype="multipart/form-data" data-parsley-validate>
+        <?= \Form::csrf(); ?>
         <div class="form-group row">
             <label class="col-3">Title</label>
             <div class="col-9">
