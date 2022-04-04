@@ -87,7 +87,7 @@ return array(
 		 */
 
 		'previous'        => "<li class=\"page-item previous\">\n\t{link}\n</li>\n",
-		'previous-marker' => "&laquo;",
+		'previous-marker' => "Previous",
 		'previous-link'   => "\t\t<a href=\"{uri}\" rel=\"prev\" class='page-link'>{page}</a>\n",
 
 		/**
@@ -124,7 +124,7 @@ return array(
 		 */
 
 		'next'        => "<li class=\"page-item next\">\n\t{link}\n</li>\n",
-		'next-marker' => "&raquo;",
+		'next-marker' => "Next",
 		'next-link'   => "\t\t<a href=\"{uri}\" rel=\"next\" class='page-link'>{page}</a>\n",
 
 		/**
