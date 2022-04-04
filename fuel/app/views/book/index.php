@@ -34,7 +34,8 @@
                     <td>
                         <div class="d-flex justify-content-center align-items-center">
                             <a href="/book/<?= $book->id ?>/edit" class="btn btn-primary mr-2 btn-sm">Edit</a>
-                            <form action="/book/<?= $book->id ?>/delete">
+                            <form method="post" action="/book/<?= $book->id ?>/delete">
+                                <?= \Form::csrf(); ?>
                                 <button type="button" class="btn btn-danger btn-sm js-delete-book" data-id="<?= $book->id ?>" data-title="<?= $book->title ?>">Delete</button>
                             </form>
                         </div>

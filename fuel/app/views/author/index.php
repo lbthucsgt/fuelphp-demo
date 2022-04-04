@@ -20,7 +20,8 @@
                         <?php if (count($author->books)) : ?>
                             <button type="button" class="btn btn-danger btn-sm disabled">Delete</button>
                         <?php else : ?>
-                            <form action="/author/<?= $author->id ?>/delete">
+                            <form method="post" action="/author/<?= $author->id ?>/delete">
+                                <?= \Form::csrf(); ?>
                                 <button type="button" class="btn btn-danger btn-sm js-delete-author" data-id="<?= $author->id ?>" data-name="<?= $author->name ?>">Delete</button>
                             </form>
                         <?php endif; ?>
