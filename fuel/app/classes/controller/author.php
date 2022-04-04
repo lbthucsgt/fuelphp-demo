@@ -8,7 +8,7 @@ class Controller_Author extends Controller_App
     public function action_index()
     {
         $config = array(
-            'pagination_url' => '/author',
+            //'pagination_url' => '/author', //fuel php automatically build
             'total_items'    => Model_Author::count(),
             'per_page'       => 10,
             // 'uri_segment'    => 3,

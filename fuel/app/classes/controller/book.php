@@ -20,7 +20,7 @@ class Controller_Book extends Controller_App
         }
 
         $config = array(
-            'pagination_url' => '/book/',
+            //'pagination_url' => '/book/', //fuel php automatically build
             'total_items'    => (clone $query)->count(),
             'per_page'       => 4,
             'uri_segment'    => 'page',
