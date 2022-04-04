@@ -12,8 +12,11 @@ class Controller_Book extends Controller_App
             ->order_by('id', 'desc');
 
         $title = Input::get('title');
-        if (!empty($title)) {
-            $query->where('title', 'like', '%' . $title . '%');
+        $words = preg_split('/\s+/u', $title, -1, PREG_SPLIT_NO_EMPTY);
+        if (!empty($words)) {
+            foreach ($words as $word) {
+                $query->or_where('title', 'like', '%' . $word . '%');
+            }
         }
 
         $config = array(
