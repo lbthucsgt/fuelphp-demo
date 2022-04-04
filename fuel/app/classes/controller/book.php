@@ -84,6 +84,10 @@ class Controller_Book extends Controller_App
 
         $book->delete();
         Session::set_flash('success', 'The book has been deleted!');
+        $redirectUrl = Input::post('redirect_url');
+        if ($redirectUrl) {
+            Response::redirect($redirectUrl);
+        }
 
         Response::redirect('book');
     }

@@ -52,7 +52,7 @@ class Controller_Author extends Controller_App
             Response::redirect('author/' . $author->id . '/edit');
         }
 
-        $data['author'] = Model_Author::find($id);
+        $data['author'] = Model_Author::find($id, ['related' => ['books']]);
         $this->template->content = View::forge('author/edit', $data);
     }
 
