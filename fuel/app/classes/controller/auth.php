@@ -5,6 +5,23 @@ use Fuel\Core\Response;
 
 class Controller_Auth extends Controller_Template
 {
+    public function __construct()
+    {
+        if (Input::post()) {
+            if ( ! \Security::check_token()) {
+                Session::set_flash('error', 'Csrf did not match!');
+                Response::redirect(\Uri::current());
+            }
+        }
+    }
+
+    public function before()
+    {
+        parent::before();
+        $this->template->formError = View::forge('layouts/form-error');
+        $this->template->formSuccess = View::forge('layouts/form-success');
+    }
+
     public function action_login()
     {
         if (Input::post()) {
