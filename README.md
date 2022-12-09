@@ -1,5 +1,6 @@
 # FuelPHP
 
+master branch
 * Version: 1.9 [under development]
 * [Website](https://fuelphp.com/)
 * [Release Documentation](https://fuelphp.com/docs)
